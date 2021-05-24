@@ -2245,6 +2245,10 @@ modules:
 	@echo "Visit https://github.com/aircrack-ng/rtl8812au for support/reporting issues"
 	@echo "or check for newer versions (branches) of these drivers.                   "
 	@echo "---------------------------------------------------------------------------"
+
+modules_install:
+	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KERNEL_SRC) M=$(shell pwd) modules_install
+
 strip:
 	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
 
